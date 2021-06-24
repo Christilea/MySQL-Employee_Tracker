@@ -1,24 +1,15 @@
 //Imports
-const mysql = require("mysql");
+// require('dotenv').config()
 const inquirer = require("inquirer");
-
-// Establish connection with database
-const connection = mysql.createConnection({
-    host: 'localhost',
-
-    // Your port; if not 3306
-    port: 3306,
-
-    // Your username
-    user: 'root',
-
-    // Your password
-    password: '',
-    database: 'employee_tracker',
-});
+const connection = require("./db/connection")
+connection.connect((err) => {
+    if (err) throw err;
+    console.log(`connected as id ${connection.threadId}`)
+main();
+  });
 
 // View all employees
-const viewAllEmp = () => {
+const viewAll = () => {
     // Query database and display rows
     const query = "SELECT * FROM employee";
     connection.query(query, (err, results) => {
@@ -29,7 +20,7 @@ const viewAllEmp = () => {
 }
 
 // View Employees by Role
-const viewEmpRole = () => {
+const viewByRole = () => {
     // Ask Question
     inquirer.prompt([{
         type: "list",
@@ -56,7 +47,7 @@ const viewEmpRole = () => {
 }
 
 // View Employee by department
-const viewEmpDep = () => {
+const viewByDep = () => {
     inquirer.prompt([{
         type: "list",
         choices: [
@@ -91,7 +82,7 @@ const viewDep = () => {
 }
 
 // View all Roles
-const viewRole = () => {
+const viewRoles = () => {
     const query = `select * from role;`;
     connection.query(query, (err, results) => {
         if(err) throw err;
@@ -217,7 +208,7 @@ const addRole = () => {
 }
 
 // Remove an Employee
-const remEmp = async() => {
+const removeEmp = async() => {
     const queryOne = `select id, first_name, last_name from employee;`;
     connection.query(queryOne, (err, results) => {
         // fullNames = [...results];
@@ -250,7 +241,7 @@ const remEmp = async() => {
 }
 
 // Updates the Employees Role
-const updEmpRole= () => {
+const updateRole= () => {
     const queryOne = `select id, first_name, last_name from employee;`;
     connection.query(queryOne, (err, results) => {
         const fullNames = [];
@@ -265,7 +256,7 @@ const updEmpRole= () => {
                 name: "choice"
             },
             {
-                type: "list",
+               type: "list",
                 choices: [1,2,3,4,5,6],
                 message: "Pick which role to update for Employee:",
                 name: "role"
@@ -284,7 +275,7 @@ const updEmpRole= () => {
 }
 
 // Updates Manager status
-const updEmpMan = () => {
+const updateManager = () => {
     const queryOne = `select id, first_name, last_name from employee;`;
     connection.query(queryOne, (err, results) => {
         const fullNames = [];
@@ -342,16 +333,16 @@ const main = () => {
         .then(response => {
             // display all employees
             if (response.choice === "View All Employees") {
-                viewAllEmp();
+                viewAll();
             // display employees by department
             } else if (response.choice === "View Employees by Department") {
-                viewEmpDep();
+                viewByDep();
             // display employees by their role
             } else if (response.choice === "View Employees by Role") {
-                viewEmpRole();
+                viewByRole();
             // View All Roles
             } else if(response.choice === "View All Roles") {
-                viewRole();
+                viewRoles();
             // View all Departments
             } else if(response.choice === "View All Departments") {
                 viewDep();
@@ -366,13 +357,13 @@ const main = () => {
                 addRole();
             // remove an employee
             }else if (response.choice === "Remove Employee") {
-                remEmp();
+                removeEmp();
             // Update an employees role
             } else if (response.choice === "Update Employee Role") {
-                updEmpRole();
+                updateRole();
             // Update employees manager status
             } else if (response.choice === "Update Employee Manager") {
-                updEmpMan();
+                updateManager();
             // Exit program
             } else if(response.choice === "Exit") {
                 connection.end();
@@ -387,7 +378,7 @@ const main = () => {
 }
 
 // upon connection go to main function
-connection.connect(err => {
-    if (err) throw err;
-    main();
-})
+// connection.connect(err => {
+    // if (err) throw err;
+    // main();
+// })

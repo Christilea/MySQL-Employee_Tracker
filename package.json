@@ -1,0 +1,27 @@
+{
+  "name": "MySQLEmployeeTracker",
+  "version": "1.0.0",
+  "description": "Employee Tracker App # Unit 12 MySQL Homework: Employee Tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Christilea/MySQLEmployeeTracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Christilea/MySQLEmployeeTracker/issues"
+  },
+  "homepage": "https://github.com/Christilea/MySQLEmployeeTracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "dotenv": "^10.0.0",
+    "inquirer": "^8.1.1",
+    "mysql": "^2.18.1"
+  }
+}
