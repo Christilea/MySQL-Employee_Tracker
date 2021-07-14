@@ -332,41 +332,41 @@ const main = () => {
             name: "choice"
         }])
         .then(response => {
-            // display all employees
-            if (response.choice === "View All Employees") {
+            // show all employees
+            if (response.list === "View All Employees") {
                 viewAll();
-            // display employees by department
-            } else if (response.choice === "View Employees by Department") {
+            
+            } else if (response.list === "View Employees by Department") {
                 viewByDep();
-            // display employees by their role
-            } else if (response.choice === "View Employees by Role") {
+            
+            } else if (response.list === "View Employees by Role") {
                 viewByRole();
-            // View All Roles
-            } else if(response.choice === "View All Roles") {
+            
+            } else if(response.list === "View All Roles") {
                 viewRoles();
-            // View all Departments
-            } else if(response.choice === "View All Departments") {
+            
+            } else if(response.list === "View All Departments") {
                 viewDep();
-            // add employee
-            } else if (response.choice === "Add Employee") {
+            
+            } else if (response.list === "Add Employee") {
                 addEmp();
-            // Add a Department
-            } else if (response.choice === "Add Department") {
+            
+            } else if (response.list === "Add Department") {
                 addDep();
-            // Add a Role
-            } else if (response.choice === "Add Role") {
+            
+            } else if (response.list === "Add Employee Role") {
                 addRole();
-            // remove an employee
-            }else if (response.choice === "Remove Employee") {
+            
+            }else if (response.list === "Delete Employee") {
                 removeEmp();
-            // Update an employees role
-            } else if (response.choice === "Update Employee Role") {
+            
+            } else if (response.list === "Delete Employee Role") {
                 updateRole();
-            // Update employees manager status
-            } else if (response.choice === "Update Employee Manager") {
+            
+            } else if (response.list === "Update Employee Manager") {
                 updateManager();
-            // Exit program
-            } else if(response.choice === "Exit") {
+            
+            } else if(response.list === "Exit") {
                 connection.end();
                 process.exit(0);
             }
