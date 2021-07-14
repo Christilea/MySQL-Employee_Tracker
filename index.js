@@ -97,12 +97,12 @@ const addEmp = () => {
         {
             type: "input",
             message: "Enter First Name:",
-            name: "fname"
+            name: "FirstName"
         },
         {
             type: "input",
             message: "Enter Last Name:",
-            name: "lname"
+            name: "LastName"
         },
         {
             type: "list",
