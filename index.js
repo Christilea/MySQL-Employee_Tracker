@@ -6,7 +6,7 @@ connection.connect((err) => {
     if (err) throw err;
     console.log(`connected as id ${connection.threadId}`)
 main();
-  });
+});
 
 // View all employees
 const viewAll = () => {
