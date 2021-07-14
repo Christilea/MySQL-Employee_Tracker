@@ -25,12 +25,12 @@ const viewByRole = () => {
     inquirer.prompt([{
         type: "list",
         choices: [
-            "1 Software Developer", new inquirer.Separator(),
-            "2 Recruiter", new inquirer.Separator(),
-            "3 Business Analyst", new inquirer.Separator(),
-            "4 Operations Manager", new inquirer.Separator(),
-            "5 Executive Accountant", new inquirer.Separator(),
-            "6 Senior Software Developer", new inquirer.Separator()
+            "1 Software Developer", 
+            "2 Recruiter", 
+            "3 Business Analyst", 
+            "4 Operations Manager", 
+            "5 Executive Accountant", 
+            "6 Senior Software Developer", 
         ],
         message: "Choose which role you want to see",
         name: "choice"
@@ -51,11 +51,11 @@ const viewByDep = () => {
     inquirer.prompt([{
         type: "list",
         choices: [
-            "1 Information Technologies", new inquirer.Separator(),
-            "2 Human Resources", new inquirer.Separator(),
-            "3 Administration", new inquirer.Separator(),
-            "4 Operations", new inquirer.Separator(),
-            "5 Accounting", new inquirer.Separator()
+            "1 Information Technologies", 
+            "2 Human Resources", 
+            "3 Administration",
+            "4 Operations", 
+            "5 Accounting", 
         ],
         message: "Select a Department:",
         name: "choice"
@@ -107,12 +107,12 @@ const addEmp = () => {
         {
             type: "list",
             choices: [
-                "1 Software Developer", new inquirer.Separator(),
-                "2 Recruiter", new inquirer.Separator(),
-                "3 Business Analyst", new inquirer.Separator(),
-                "4 Operations Manager", new inquirer.Separator(),
-                "5 Executive Accountant", new inquirer.Separator(),
-                "6 Senior Software Developer", new inquirer.Separator()
+                "1 Software Developer",
+                "2 Recruiter", 
+                "3 Business Analyst", 
+                "4 Operations Manager",
+                "5 Executive Accountant", 
+                "6 Senior Software Developer", 
             ],
             message: "Which role is this employee",
             name: "role"
@@ -120,12 +120,12 @@ const addEmp = () => {
         {
             type: "list",
             choices: [
-                "1 Jerry Thomas", new inquirer.Separator(),
-                "3 Delian Maxoff", new inquirer.Separator(),
-                "5 Clide Hill", new inquirer.Separator(),
-                "7 Elliot Stop", new inquirer.Separator(),
-                "9 Keon Pourboghrat", new inquirer.Separator(),
-                "None", new inquirer.Separator()
+                "1 ", 
+                "2 ", 
+                "3 ", 
+                "4 ",
+                "5 ", 
+                "None",
             ],
             message: "Who is this employees Manager?",
             name: "manager"
@@ -310,7 +310,7 @@ const updateManager = () => {
 
 // This is the main function where the user is given choices
 const main = () => {
-    // Ask for users input
+    //  users input
     inquirer.prompt([{
             type: "list",
             choices: [
