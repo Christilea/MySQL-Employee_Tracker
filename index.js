@@ -36,7 +36,7 @@ const viewByRole = () => {
         name: "choice"
     }])
     .then(response => {
-        // Query Database and display rows
+        // Query Database then display rows
         const query = `SELECT * FROM employee where role_id = ${Number.parseInt(response.choice.charAt(0))}`;
         connection.query(query, (err, results) => {
             if(err) throw err;
@@ -252,13 +252,13 @@ const updateRole= () => {
             {
                 type: "list",
                 choices: [...fullNames],
-                message: "Pick the Employee:",
+                message: "Choose Employee:",
                 name: "choice"
             },
             {
-               type: "list",
+            type: "list",
                 choices: [1,2,3,4,5,6],
-                message: "Pick which role to update for Employee:",
+                message: " Choose role to update Employee:",
                 name: "role"
             }
         ])
@@ -286,13 +286,13 @@ const updateManager = () => {
             {
                 type: "list",
                 choices: [...fullNames],
-                message: "Pick the Employee:",
+                message: "Choose Employee:",
                 name: "choice"
             },
             {
                 type: "list",
                 choices: [1,2,3,4,5,6,"null"],
-                message: "Pick which Manager to update for Employee:",
+                message: "Choose Manager to update Employee:",
                 name: "role"
             }
         ])
