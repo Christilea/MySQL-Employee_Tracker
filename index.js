@@ -120,11 +120,11 @@ const addEmp = () => {
         {
             type: "list",
             choices: [
-                "1 ", 
-                "2 ", 
-                "3 ", 
-                "4 ",
-                "5 ", 
+                "1 ","James Thompson",
+                "2 ","Delian Jackson", 
+                "3 ","Bart Jefferson", 
+                "4 ","Collin Hinson",
+                "5 ","Elliot Shaft",
                 "None",
             ],
             message: "Who is this employees Manager?",
