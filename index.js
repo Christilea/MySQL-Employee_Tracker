@@ -134,7 +134,7 @@ const addEmp = () => {
     .then(response => {
         const parsedRole = response.role.split(" ");
         const parsedManager = response.manager.split(" ");
-        const query = `insert into employee(first_name, last_name, role_id, manager_id)values("${response.fname}", "${response.lname}", ${Number.parseInt(parsedRole)}, ${Number.parseInt(parsedManager)})`;
+        const query = `insert into employee(first_name, last_name, role_id, manager_id)values("${response.firstName}", "${response.lastName}", ${Number.parseInt(parsedRole)}, ${Number.parseInt(parsedManager)})`;
         connection.query(query, (err, results) => {
             if (err) {
                 throw err;
