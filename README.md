@@ -47,5 +47,5 @@ schema.sql
 seed.sql
 
 Watch a video walkthrough here
-[Video Walkthrough] https://youtu.be/6aORYnXGRSY
+[Video Walkthrough] http://youtu.be/Haa1PEd9gb4?hd=1
 ## 

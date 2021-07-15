@@ -10,6 +10,7 @@ main();
 
 // View all employees
 const viewAll = () => {
+    console.log("test")
     // Query database and display rows
     const query = "SELECT * FROM employee";
     connection.query(query, (err, results) => {
@@ -120,12 +121,12 @@ const addEmp = () => {
         {
             type: "list",
             choices: [
-                "1 ","James Thompson",
-                "2 ","Delian Jackson", 
-                "3 ","Bart Jefferson", 
-                "4 ","Collin Hinson",
-                "5 ","Elliot Shaft",
-                "None",
+                "1 James Thompson",
+                "2 Delian Jackson", 
+                "3 Bart Jefferson", 
+                "4 Collin Hinson",
+                "5 Elliot Shaft",
+                "None"
             ],
             message: "Who is this employees Manager?",
             name: "manager"
@@ -134,7 +135,7 @@ const addEmp = () => {
     .then(response => {
         const parsedRole = response.role.split(" ");
         const parsedManager = response.manager.split(" ");
-        const query = `insert into employee(first_name, last_name, role_id, manager_id)values("${response.firstName}", "${response.lastName}", ${Number.parseInt(parsedRole)}, ${Number.parseInt(parsedManager)})`;
+        const query = `insert into employee(first_name, last_name, role_id, manager_id)values("${response.FirstName}", "${response.LastName}", ${Number.parseInt(parsedRole)}, ${Number.parseInt(parsedManager)})`;
         connection.query(query, (err, results) => {
             if (err) {
                 throw err;
@@ -315,58 +316,58 @@ const main = () => {
             type: "list",
             choices: [
                 "View All Employees?",
-                "View  All Departments?",
-                "View All Employees by Department?",
-                "View Employees by Role?", 
+                "View All Departments?",
+                //"View All Employees by Department?",
+                //"View Employees by Role?", 
                 "View All Roles?", 
-                "View All Employees by Role?",
+                //"View All Employees by Role?",
                 "Add Employee?", 
                 "Add Department?",
                 "Add Role?",
-                "Remove Employee?", 
+                //"Remove Employee?", 
                 "Update Employee Role?", 
-                "Update Employee Manager?", 
-                "Stop?", 
+                //"Update Employee Manager?", 
+                "Exit?", 
             ],
             message: "What would you like to do?",
-            name: "choice"
+            name: "list"
         }])
         .then(response => {
             // show all employees
-            if (response.list === "View All Employees") {
+            if (response.list === "View All Employees?") {
                 viewAll();
             
-            } else if (response.list === "View Employees by Department") {
-                viewByDep();
+            // } else if (response.list === "View Employees by Department?") {
+            //     viewByDep();
             
-            } else if (response.list === "View Employees by Role") {
-                viewByRole();
+            // } else if (response.list === "View Employees by Role?") {
+            //     viewByRole();
             
-            } else if(response.list === "View All Roles") {
+            } else if(response.list === "View All Roles?") {
                 viewRoles();
             
-            } else if(response.list === "View All Departments") {
+            } else if(response.list === "View All Departments?") {
                 viewDep();
             
-            } else if (response.list === "Add Employee") {
+            } else if (response.list === "Add Employee?") {
                 addEmp();
             
-            } else if (response.list === "Add Department") {
+            } else if (response.list === "Add Department?") {
                 addDep();
             
-            } else if (response.list === "Add Employee Role") {
+            } else if (response.list === "Add Role?") {
                 addRole();
             
-            }else if (response.list === "Delete Employee") {
-                removeEmp();
+            // }else if (response.list === "Delete Employee?") {
+            //     removeEmp();
             
-            } else if (response.list === "Delete Employee Role") {
+            } else if (response.list === "Update Employee Role?") {
                 updateRole();
             
-            } else if (response.list === "Update Employee Manager") {
-                updateManager();
+            // } else if (response.list === "Update Employee Manager?") {
+            //     updateManager();
             
-            } else if(response.list === "Exit") {
+            } else if(response.list === "Exit?") {
                 connection.end();
                 process.exit(0);
             }

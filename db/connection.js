@@ -13,7 +13,7 @@ const connection = mysql.createConnection({
 
     // password
     password: process.env.PASSWORD,
-    database: 'employee_tracker',
+    database: 'employeeTracker_db',
 });
 
 module.exports = connection
